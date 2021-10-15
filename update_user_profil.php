@@ -95,7 +95,7 @@ $reponse=mysqli_fetch_array($query);
                     {
                     $photo_profil=addslashes(file_get_contents($photo));
                     }else{
-                        $errors[]="Votre photo d'identité n'a pas pu être télécharger !";    
+                        $errors[]="Votre photo n'a pas pu être télécharger !";    
                     }
 
                     }else{
