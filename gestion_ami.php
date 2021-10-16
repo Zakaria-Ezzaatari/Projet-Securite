@@ -1,11 +1,11 @@
 <?php
 session_start();
 include "inc/connect.php";
-if (!isset($_SESSION['id'])){
+if (!isset($_SESSION['id_utilisateur'])){
 header('location:index.php');
 }
 $stmt = $conn->prepare("SELECT id_utilisateur FROM utilisateur WHERE email_utilisateur = ?");
-$stmt->execute(array($_POST['email']));
+$stmt->execute(array(htmlspecialchars($_POST['email'])));
 $result=$stmt->fetch();
 if($stmt->rowCount() !== 0) 
 {

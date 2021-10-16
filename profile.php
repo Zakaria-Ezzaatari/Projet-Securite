@@ -2,8 +2,8 @@
     include 'inc/header.php'; 
     include 'inc/connect.php';
     session_start();
-    $_SESSION['id']=1;
-    if (!isset($_SESSION['id'])){
+    
+    if (!isset($_SESSION['id_utilisateur'])){
     header('location:index.php');
     }
 

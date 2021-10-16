@@ -1,22 +1,22 @@
 <?php
 session_start();
 include 'inc/connect.php';
-if (!isset($_SESSION['id'])){
+if (!isset($_SESSION['id_utilisateur'])){
 header('location:index.php');
 }
-$nom=$_POST['nom'];
-$prenom=$_POST['prenom'];
-$adresse=$_POST['adresse'];
-$telephone=$_POST['telephone'];
-$description=$_POST['description'];
+$nom=htmlspecialchars($_POST['nom']);
+$prenom=htmlspecialchars($_POST['prenom'];
+$adresse=htmlspecialchars($_POST['adresse']);
+$telephone=htmlspecialchars($_POST['telephone']);
+$description=htmlspecialchars($_POST['description']);
 
 $stmt = $conn->prepare("SELECT email_utilisateur FROM utilisateur WHERE email_utilisateur = ?");
-$stmt->execute(array($_POST['courriel']));
+$stmt->execute(array(htmlspecialchars($_POST['courriel'])));
 $result=$stmt->fetch();
 
 if($stmt->rowCount() == 0) 
 {
-    $courriel=$_POST['courriel'];
+    $courriel=htmlspecialchars($_POST['courriel']);
     $stmt = $conn->prepare("UPDATE utilisateur
     SET
     email_utilisateur = ?
