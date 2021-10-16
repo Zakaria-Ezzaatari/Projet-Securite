@@ -73,6 +73,18 @@ if (empty($_SESSION['id_utilisateur'])){
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="users.php">Utilisateurs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="friends.php">Amis</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="friend_request.php">Mes demandes d'amitié</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="posts.php">Forum</a>
+            </li>
           </ul>
           <form action="user_profil.php" method="POST" class="d-flex">
             <button class="btn btn-outline-success" type="submit">

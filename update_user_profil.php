@@ -1,7 +1,7 @@
 <?php 
 include 'inc/header.php'; 
 $id_utilisateur = $_SESSION['id_utilisateur'];
-$requete="SELECT mot_de_passe_utilisateur, nom_utilisateur, prenom_utilisateur, login_utilisateur, telephone_utilisateur, email_utilisateur, description_utilisateur, photo_profil from utilisateur where id_utilisateur ='$id_utilisateur'";
+$requete="SELECT mot_de_passe_utilisateur, nom_utilisateur, prenom_utilisateur, login_utilisateur, telephone_utilisateur, email_utilisateur, description_utilisateur, photo_profil, adresse_utilisateur from utilisateur where id_utilisateur ='$id_utilisateur'";
 $query=mysqli_query($bdd,$requete);
 //echo mysqli_error($bdd);
 $reponse=mysqli_fetch_array($query); 
@@ -226,12 +226,12 @@ $reponse=mysqli_fetch_array($query);
 					$nom =mysqli_real_escape_string($bdd,$_POST['nom']);
 					$prenom =mysqli_real_escape_string($bdd,$_POST['prenom']);
 					$telephone =mysqli_real_escape_string($bdd,$_POST['telephone']); 
-					$email =mysqli_real_escape_string($bdd,$_POST['email']);
+					$email =mysqli_real_escape_string($bdd,$_POST['mail']);
                     $adresse =mysqli_real_escape_string($bdd,$_POST['adresse']);
 
                 //verifier si le mail n'est pas deja utilisé
 
-                $requete=mysqli_query($bdd,"SELECT * from utilisateur where email_utilisateur = '$mail' and statut_utilisateur ='1' and id_utilisateur <> '$id_utilisateur' ");
+                $requete=mysqli_query($bdd,"SELECT * from utilisateur where email_utilisateur = '$email' and statut_utilisateur ='1' and id_utilisateur <> '$id_utilisateur' ");
                 $reponse=mysqli_num_rows($requete);
                 if ($reponse>0){
                     $errors[]="Cette adresse mail est déja utilisée par un autre utilisateur";
@@ -267,7 +267,7 @@ $reponse=mysqli_fetch_array($query);
                     }
                 }else{
 
-                    if(mysqli_query($bdd,"UPDATE utilisateur set login_utilisateur = '$login', nom_utilisateur='$nom', prenom_utilisateur= '$prenom', adresse_utilisateur='$adresse', email_utilisateur='$mail', telephone_utilisateur='$telephone' where id_utilisateur ='$id_utilisateur' ")){
+                    if(mysqli_query($bdd,"UPDATE utilisateur set login_utilisateur = '$login', nom_utilisateur='$nom', prenom_utilisateur= '$prenom', adresse_utilisateur='$adresse', email_utilisateur='$email', telephone_utilisateur='$telephone' where id_utilisateur ='$id_utilisateur' ")){
 
                         ?>
                         <script >
@@ -280,9 +280,10 @@ $reponse=mysqli_fetch_array($query);
                                 window.location="update_user_profil.php";
                             });
                         </script>
-                        <?php
+                        <?php 
 
                     }else{
+                        
                         ?>
                         <script >
                             swal({
@@ -294,7 +295,7 @@ $reponse=mysqli_fetch_array($query);
                                 window.location="update_user_profil.php";
                             });
                         </script>
-                        <?php
+                        <?php 
 
                     }
                 }
