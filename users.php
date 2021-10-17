@@ -101,7 +101,8 @@ $requete =mysqli_query($bdd,"SELECT * from utilisateur where id_utilisateur <> '
 
             $to=$email;            
             $subject  = 'Demande d amitié.';
-            $headers = "From: torkent163@gmail.com";            
+            $headers = "From: smtp-theroot163.alwaysdata.net";
+								           
             $message="Bonjour monsieur ".$nom." ".$prenom." \n 
             Vous venez de recevoir une demande d'amitié, 
             Veuillez vous connecter pour y repondre.";
@@ -189,7 +190,8 @@ $requete =mysqli_query($bdd,"SELECT * from utilisateur where id_utilisateur <> '
             $nom=$reponse['nom_utilisateur'];
             $prenom=$reponse['prenom_utilisateur'];
             $subject  = 'Demande d amitié.';
-            $headers = "From: torkent163@gmail.com";
+            $headers = "From: smtp-theroot163.alwaysdata.net";
+			
             
             $message="Bonjour monsieur ".$nom." ".$prenom." \n 
             Vous venez de recevoir une demande d'amitié, 

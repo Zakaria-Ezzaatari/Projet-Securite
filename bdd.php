@@ -7,10 +7,10 @@
 	//$db_pass = "";
 
 	//Connexion Serveur
-	$db_host = "remotemysql.com";
-	$db_name = "x6UZTFUtZ6";
-	$db_user = "x6UZTFUtZ6";
-	$db_pass = "XQ6oaYCgmz";
+	$db_host = "mysql-theroot163.alwaysdata.net";
+	$db_name = "theroot163_tpsecurite";
+	$db_user = "241507";
+	$db_pass = "20131777@Smo";
 	
 	$bdd=mysqli_connect("$db_host","$db_user","$db_pass","$db_name");
 	if (mysqli_connect_errno())

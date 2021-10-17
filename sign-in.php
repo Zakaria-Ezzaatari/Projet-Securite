@@ -200,8 +200,8 @@
 
 								$to=$email;
 								$subject  = 'Création de compte';
-								$headers = "From: torkent163@gmail.com";
-								$lien="site/confirm_account.php";
+								$headers = "From: smtp-theroot163.alwaysdata.net";
+								$lien="theroot163.alwaysdata.net/confirm_account.php";
 								$message="Bonjour monsieur ".$nom." ".$prenom." \n 
 								Votre compte à bien eté créer.\n
 								veuillez cliquer sur ce lien pour activer votre compte.\n"
