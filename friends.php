@@ -24,6 +24,7 @@ $requete =mysqli_query($bdd,"SELECT * from utilisateur u, liste_ami l where  u.i
                  ?>
             <tr>
                 <td>
+                <a class="btn" href="friend_profil.php?id=<?php echo $id_ami; ?>">
                     <?php 
                     if ($reponse['photo_profil']==""){
                         ?> 
@@ -36,6 +37,7 @@ $requete =mysqli_query($bdd,"SELECT * from utilisateur u, liste_ami l where  u.i
 
                     ?>
                 </td>
+                </a>
                 <td>
                     <?php
                     
