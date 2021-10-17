@@ -6,7 +6,6 @@
 	//$db_user = "root";
 	//$db_pass = "";
 
-	//Connexion Serveur
 	$db_host = "mysql-theroot163.alwaysdata.net";
 	$db_name = "theroot163_tpsecurite";
 	$db_user = "241507";
