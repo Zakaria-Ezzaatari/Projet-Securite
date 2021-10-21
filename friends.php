@@ -2,7 +2,7 @@
 include 'inc/header.php'; 
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
-$requete =mysqli_query($bdd,"SELECT * from utilisateur u, liste_ami l where  u.id_utilisateur = l.id_ami and statut_utilisateur ='1' and l.id_utilisateur = '$id_utilisateur'");
+$requete =mysqli_query($bdd,"SELECT * FROM utilisateur u, liste_ami l where u.id_utilisateur = l.id_utilisateur and l.id_ami = '$id_utilisateur'");
 
 
 

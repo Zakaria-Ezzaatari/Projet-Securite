@@ -43,6 +43,7 @@
   <!-- Custom styles for this template -->
   <link href="public/css/carousel.css" rel="stylesheet">
   <script src="public/js/sweetalert.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" ></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -111,6 +112,8 @@
 				<input type="email" class="form-control" value='<?php echo @$_POST['email'];?>' minlength=5 Maxlength="50"  name="email" required />
 			</div>
 			<br>
+			<div class="g-recaptcha" name="g-recaptcha-response" data-sitekey="6Le_q-EcAAAAAPkjKZ3v23P2sxa3dli5fS2vUNNF"></div>
+			<br>
 			<div class="form-group">
 				<button type="submit" class="btn col-md-12 col-sm-12 col-xs-12 btn-primary" name="valider" id="btn-login">
 					ENREGISTRER
@@ -154,6 +157,15 @@
 					if ($pass1<>$pass2)
 					{
 						$errors[] = 'Les deux mots de passe ne correspondent pas.';
+					}
+
+					$secret = '6Le_q-EcAAAAADGihi-VvyGZEn7tTouhWANb6T5b';
+					$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+					$responseData = json_decode($verifyResponse);
+					if ($responseData->success) {
+
+					}else{
+						$errors[] = 'Vous etes un robot visiblement.';
 					}
 
 					
@@ -200,14 +212,9 @@
 
 								$to=$email;
 								$subject  = 'Création de compte';
-								$headers = "From: smtp-theroot163.alwaysdata.net";
-								$lien="theroot163.alwaysdata.net/confirm_account.php";
-								$message="Bonjour monsieur ".$nom." ".$prenom." \n 
-								Votre compte à bien eté créer.\n
-								veuillez cliquer sur ce lien pour activer votre compte.\n"
-								.$lien."\n
-								Votre identifiant est: ".$login."\n
-								Votre code de confirmation est: ".$code_confirmation_utilisateur;
+								$headers = "From: torkent163@gmail.com";
+								$lien="www.tp_securite.com/confirm_account.php";
+								$message="Bonjour monsieur ".$nom." ".$prenom."\nVotre compte à bien eté créer.\nveuillez cliquer sur ce lien pour activer votre compte.\n".$lien."\nVotre identifiant est: ".$login."\nVotre code de confirmation est: ".$code_confirmation_utilisateur;
 
 								mail($to,$subject,$message, $headers);
 

@@ -27,11 +27,37 @@ $reponse=mysqli_fetch_array($query);
                 
             </div>
             <div class="col">
-                    <h1 ><?php echo @$reponse['nom_utilisateur']; ?></h1>
-                    <h2 ><?php echo @$reponse['prenom_utilisateur']; ?></h2>
-                    <h2 ><?php echo @$reponse['email_utilisateur']; ?></h2>
-                    <h2 ><?php echo @$reponse['telephone_utilisateur']; ?></h2>
-                    <h2 ><?php echo @$reponse['adresse_utilisateur']; ?></h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><u>Nom:</u></td>
+                            <td><?php echo @$reponse['nom_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Prénom:</u></td>
+                            <td><?php echo @$reponse['prenom_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Email:</u></td>
+                            <td><?php echo @$reponse['email_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Tel:</u></td>
+                            <td><?php echo @$reponse['telephone_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Adresse:</u></td>
+                            <td><?php echo @$reponse['adresse_utilisateur']; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+                    
             </div>
 
         </div>

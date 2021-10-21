@@ -88,7 +88,16 @@ if (empty($_SESSION['id_utilisateur'])){
           </ul>
           <form action="user_profil.php" method="POST" class="d-flex">
             <button class="btn btn-outline-success" type="submit">
-            <?php echo '<img class='."user_profil".' src="data:image/jpeg;base64,'.base64_encode( $reponse['photo_profil'] ).'"/>'." ".$reponse['nom_utilisateur']." ".$reponse['prenom_utilisateur'] ; ?>
+            <?php  
+                if ($reponse['photo_profil']==""){
+                    ?> 
+                    <img class="user_profil" src="public/images/user.jpg" alt="">&nbsp;<?php echo $reponse['nom_utilisateur']." ".$reponse['prenom_utilisateur'] ; ?>
+                    <?php
+                }else{
+                  echo '<img class='."user_profil".' src="data:image/jpeg;base64,'.base64_encode( $reponse['photo_profil'] ).'"/>'." ".$reponse['nom_utilisateur']." ".$reponse['prenom_utilisateur'] ;
+                    }
+              ?> 
+            
             </button>
           </form>
         </div>

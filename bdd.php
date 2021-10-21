@@ -1,15 +1,14 @@
 <?php
 	session_start();
-	//Connexion Locale
-	//$db_host = "localhost";
-	//$db_name = "tp_securite";
-	//$db_user = "root";
-	//$db_pass = "";
-
-	$db_host = "mysql-theroot163.alwaysdata.net";
+	/*$db_host = "mysql-theroot163.alwaysdata.net";
 	$db_name = "theroot163_tpsecurite";
 	$db_user = "241507";
-	$db_pass = "20131777@Smo";
+	$db_pass = "20131777@Smo";*/
+
+	$db_host = "localhost";
+	$db_name = "tp_securite";
+	$db_user = "root";
+	$db_pass = "";
 	
 	$bdd=mysqli_connect("$db_host","$db_user","$db_pass","$db_name");
 	if (mysqli_connect_errno())

@@ -153,8 +153,10 @@
                             //envoi du nouveau code de confirmation à l'utilisateur
                             $to=$reponse['email_utilisateur'];
                             $subject  = 'Validation de compte';
-                            $headers = "From: smtp-theroot163.alwaysdata.net";
-							            	$lien="theroot163.alwaysdata.net/confirm_account.php";
+                            $headers = "From: torkent163@gmail.com";
+
+                            
+                            $lien="site/confirm_account.php";
                             //echo $message;
                             $message="Bonjour monsieur ".$reponse['nom_utilisateur']." ".$reponse['prenom_utilisateur']." \n Nous venons de vous renvoyer un nouveau code de confirmation.\nveuillez cliquer sur ce lien pour confirmer votre compte.\n".$lien."\nVotre LOGIN est: ".$reponse['login_utilisateur']."\nVotre code de confirmation est: ".$code_confirmation_utilisateur;
                             mail($to,$subject,$message, $headers);

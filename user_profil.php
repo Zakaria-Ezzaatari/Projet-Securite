@@ -1,7 +1,7 @@
 <?php 
 include 'inc/header.php'; 
 $id_utilisateur = $_SESSION['id_utilisateur'];
-$requete="SELECT mot_de_passe_utilisateur, nom_utilisateur, prenom_utilisateur, login_utilisateur, telephone_utilisateur, email_utilisateur, description_utilisateur, photo_profil from utilisateur where id_utilisateur ='$id_utilisateur'";
+$requete="SELECT adresse_utilisateur, mot_de_passe_utilisateur, nom_utilisateur, prenom_utilisateur, login_utilisateur, telephone_utilisateur, email_utilisateur, description_utilisateur, photo_profil from utilisateur where id_utilisateur ='$id_utilisateur'";
 $query=mysqli_query($bdd,$requete);
 //echo mysqli_error($bdd);
 $reponse=mysqli_fetch_array($query); 
@@ -26,11 +26,36 @@ $reponse=mysqli_fetch_array($query);
                 
             </div>
             <div class="col">
-                    <h1 ><?php echo @$reponse['nom_utilisateur']; ?></h1>
-                    <h2 ><?php echo @$reponse['prenom_utilisateur']; ?></h2>
-                    <h2 ><?php echo @$reponse['email_utilisateur']; ?></h2>
-                    <h2 ><?php echo @$reponse['telephone_utilisateur']; ?></h2>
-                    <h2 ><?php echo @$reponse['adresse_utilisateur']; ?></h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><u>Nom:</u></td>
+                            <td><?php echo @$reponse['nom_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Prénom:</u></td>
+                            <td><?php echo @$reponse['prenom_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Email:</u></td>
+                            <td><?php echo @$reponse['email_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Tel:</u></td>
+                            <td><?php echo @$reponse['telephone_utilisateur']; ?></td>
+                        </tr>
+                        <tr>
+                            <td><u>Adresse:</u></td>
+                            <td><?php echo @$reponse['adresse_utilisateur']; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
         </div>

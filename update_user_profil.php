@@ -23,7 +23,7 @@ $reponse=mysqli_fetch_array($query);
         
             <br>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" style="display:block;margin-left:auto; margin-right:auto;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Modifier la photo de profil
             </button>
 
